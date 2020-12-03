@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+
+<div class="d-flex flex-column">
+
+    <h1 class="text-right">{{ category.title }}</h1>
+    <hr>
+    
+    {% for article in articles %}
+
+        <a href="{% url 'blog:article-detail' article.slug %}" class="link">{{ article.title }}</a>
+                
+    {% endfor %}
+    
+</div>
+    
+{% endblock %}
+    

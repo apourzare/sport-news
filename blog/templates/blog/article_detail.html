@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+
+<a href="{% url 'blog:article-list' %}" class="btn btn-info mb-2">تمامی مقالات</a>
+
+<div class="d-flex">
+        
+    <div class="col-md-6">
+        <div class="">
+            <h5 class="">
+                <a href="" class="link">{{ article.title }}</a>
+            </h5>
+            <p class="">{{ article.body }}</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img src="{{ article.thumbnail.url }}" class="w-100" alt="{{ article.title }}">
+    </div>
+    
+</div>
+    
+{% endblock %}
+    
