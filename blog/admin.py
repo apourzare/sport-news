@@ -10,6 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = { 'slug': ('title',) }
+    readonly_fields = ('view_count',)
 
 
 

@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+
+<a href="{% url 'blog:article-list' %}" class="btn btn-info mb-2">تمامی مقالات</a>
+
+<div class="d-flex justify-content-center">  
+    <div class="col-md-6">
+        <form method='POST' novalidate>
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+            <!-- {% for field in form %}
+                <div class="form-group">
+                    {{ field }}
+                </div>
+            {% endfor %} -->
+            <input type="text" name="title" id="">
+            <input type="submit" value="افزودن">
+        </form>
+    </div>
+</div>
+    
+{% endblock %}
