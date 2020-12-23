@@ -7,17 +7,13 @@
 
 <div class="d-flex justify-content-center">  
     <div class="col-md-6">
+        {% if request.user.is_authenticated %}
         <form method='POST' novalidate>
             {% csrf_token %}
-            <!-- {{ form.as_p }} -->
-            <!-- {% for field in form %}
-                <div class="form-group">
-                    {{ field }}
-                </div>
-            {% endfor %} -->
-            <input type="text" name="title" id="">
+            {{ form.as_p }}
             <input type="submit" value="افزودن">
         </form>
+        {% endif %}
     </div>
 </div>
     

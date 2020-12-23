@@ -5,8 +5,11 @@
 
 <a href="{% url 'blog:article-list' %}" class="btn btn-info mb-2">تمامی مقالات</a>
 
+<a href="{% url 'blog:article-delete' article.pk %}" class="btn btn-danger mb-2">حذف این مقاله</a>
+<a href="{% url 'blog:article-update' article.pk %}" class="btn btn-warning mb-2">ویرایش این مقاله</a>
+
+
 <div class="d-flex">
-        
     <div class="col-md-6">
         <div class="">
             <h5 class="">
