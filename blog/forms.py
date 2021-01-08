@@ -1,15 +1,14 @@
 from django import forms
-from django.db.models import fields
-from blog.models import Article
+from blog.models import Article, Category
 
 
-class CategoryForm(forms.Form):
-    title = forms.CharField(max_length=150)
-    slug = forms.CharField(max_length=150)
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        exclude = ('parent', 'created', 'updated')
+
 
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        # fields = ('title', 'slug', 'author', 'categories', 'body', 'thumbnail', 'status')
-        # fields = '__all__'
         exclude = ('view_count',)

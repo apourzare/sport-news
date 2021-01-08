@@ -2,13 +2,25 @@ from django.contrib import admin
 from blog.models import Article, Category
 
 
+def make_publish_category(modeladmin, request, queryset):
+    queryset.update(status=True)
+
+
+make_publish_category.short_description = 'انتشار دسته بندی انتخابی'
+
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    prepopulated_fields = { 'slug': ('title',) }
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'status')
+    actions = (make_publish_category,)
+
 
 def make_publish_article(modeladmin, request, queryset):
     queryset.update(status='publish')
+
 make_publish_article.short_description = 'انتشار مقالات انتخابی'
+
 
 def make_article_in_slider(modeladmin, request, queryset):
     queryset.update(show_in_slider=True)
